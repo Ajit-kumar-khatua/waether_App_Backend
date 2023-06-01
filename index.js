@@ -3,10 +3,13 @@ const { connection } = require("./config/db")
 const { userRouter } = require("./routes/user.route")
 const { apiRouter } = require("./routes/wather.route")
 require("dotenv").config()
+const cors=require("cors")
+
 
 
 const app=express()
 app.use(express.json())
+app.use(cors())
 
 app.use("/users",userRouter)
 app.use("/api",apiRouter)
